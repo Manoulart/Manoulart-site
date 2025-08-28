@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manoulart - Boutique</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin:0;
+  padding:0;
+  color:#000;
+  background: linear-gradient(135deg,#000000 0%,#ffffff 50%,#CC0000 100%);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+@keyframes gradient-animation {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+header{background:#CC0000;padding:20px 50px;box-shadow:0 2px 5px rgba(0,0,0,0.1);display:flex;justify-content:space-between;align-items:center;}
+.logo{font-size:2em;font-weight:bold;color:#000;text-decoration:none;}
+nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;}
+nav ul li{margin-left:25px;}
+nav ul li a{text-decoration:none;color:#fff;font-weight:bold;}
+nav ul li a:hover{color:#000;}
+.language-menu{position:relative;margin-left:30px;}
+.language-menu label{background:#fff;padding:6px 12px;border-radius:5px;font-weight:bold;cursor:pointer;}
+.language-menu ul{display:none;position:absolute;top:35px;left:0;background:#fff;border:1px solid #ccc;list-style:none;padding:0;margin:0;border-radius:5px;}
+.language-menu ul li{padding:8px 12px;}
+.language-menu ul li a{text-decoration:none;color:#000;}
+.language-menu ul li:hover{background:#f0f0f0;}
+.language-menu:hover ul{display:block;}
+
+main{padding:50px 20px;max-width:1200px;margin:0 auto;}
+h1{color:#CC0000;text-align:center;margin-bottom:40px;}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 30px;
+}
+.card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 15px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.card img {
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  cursor:pointer;
+}
+.card h3 { margin:10px 0 5px; color:#CC0000; }
+.card .price { font-size:1.1em; margin:5px 0; }
+.card a.btn {
+  display:inline-block;
+  padding:10px 20px;
+  background:#CC0000;
+  color:#fff;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
+  transition: background 0.3s;
+}
+.card a.btn:hover { background:#990000; }
+
+
+.lightbox {
+  display:none;
+  position:fixed;
+  z-index:10;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:20px;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 60%;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+.lightbox .description {
+  color:#fff;
+  font-size:1.2em;
+  text-align:center;
+  max-width:80%;
+  margin-bottom:10px;
+}
+.lightbox .price { color:#fff; font-size:1.1em; margin-bottom:15px; }
+.lightbox a.btn { margin-top:10px; }
+.lightbox:target { display:flex; }
+.close {
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:2em;
+  color:#fff;
+  text-decoration:none;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  background:rgba(0,0,0,0.7);
+  color:#fff;
+  margin-top:50px;
+}
+footer a{color:#CC0000;font-weight:bold;text-decoration:none;}
+footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<header>
+<a href="index.html" class="logo"><img src="https://i.postimg.cc/bN4qbS0z/logo-manoulart.jpg" width="190" height="100" alt="logo"></a>
+<nav>
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="apropos.html">À propos</a></li>
+<li><a href="inspiration.html">Inspiration</a></li>
+<li><a href="galerie.html">Galerie</a></li>
+<li><a href="boutique.html">Boutique</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="language-menu">
+<label>🌐 Langue</label>
+<ul>
+<li><a href="boutique.html">Français</a></li>
+<li><a href="boutique-en.html">English</a></li>
+</ul>
+</div>
+</header>
+
+<main>
+<h1>Boutique de mes créations</h1>
+<div class="products">
+  
+  <div class="card">
+    <a href="#p1"><img src="https://i.postimg.cc/SRC8zz5P/power-of-girls-pic.jpg" alt="Power of Girls"></a>
+    <h3>Power of Girls</h3>
+    <p class="price">Prix : 2,5 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+  
+  <div class="card">
+    <a href="#p2"><img src="https://i.postimg.cc/sfbB7Dy9/broken-wings.jpg" alt="Broken Wings"></a>
+    <h3>Broken Wings</h3>
+    <p class="price">Prix : 3 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+  
+  <div class="card">
+    <a href="#p3"><img src="https://i.postimg.cc/k55MLkqg/not-just-a-glass-of-wine.jpg" alt="Not Just a Glass of Wine"></a>
+    <h3>Not Just a Glass of Wine</h3>
+    <p class="price">Prix : 1,6 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+  
+  <div class="card">
+    <a href="#p4"><img src="https://i.postimg.cc/9M6WR0TD/medusa-boutique.jpg" alt="Medusa"></a>
+    <h3>Medusa</h3>
+    <p class="price">Prix : 2,5 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+  
+  <div class="card">
+    <a href="#p5"><img src="https://i.postimg.cc/jdV5CgQM/Freedom.jpg" alt="Freedom"></a>
+    <h3>Freedom</h3>
+    <p class="price">Prix : 6,2 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+  
+  <div class="card">
+    <a href="#p6"><img src="https://i.postimg.cc/7ZwZn5R7/no-time-to-die.jpg" alt="No Time to Die"></a>
+    <h3>No Time to Die</h3>
+    <p class="price">Prix : 4,20 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+  
+  <div class="card">
+    <a href="#p7"><img src="https://i.postimg.cc/59Qy4dvH/faces.jpg" alt="Faces"></a>
+    <h3>Faces</h3>
+    <p class="price">Prix : 5 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+  
+  <div class="card">
+    <a href="#p8"><img src="https://i.postimg.cc/K4XyzH6B/a-women-or-a-monster.jpg" alt="Âme Double"></a>
+    <h3>Âme Double</h3>
+    <p class="price">Prix : 2,70 ETH</p>
+    <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+  </div>
+</div>
+
+<div id="p1" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/SRC8zz5P/power-of-girls-pic.jpg" alt="Power of Girls">
+  <div class="description">Chaque mouvement déclenche la force. Chaque pas libère le courage et la puissance qui sommeillent en nous. La véritable force réside dans l’âme de chaque fille, prête à illuminer le monde.</div>
+  <div class="price">Prix : 2,5 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+<div id="p2" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/sfbB7Dy9/broken-wings.jpg" alt="Broken Wings">
+  <div class="description">Les blessures peuvent freiner le vol, mais jamais étouffer l’esprit.</div>
+  <div class="price">Prix : 3 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+<div id="p3" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/k55MLkqg/not-just-a-glass-of-wine.jpg" alt="Not Just a Glass of Wine">
+  <div class="description">Ce n’est pas qu’un simple verre de vin — c’est un millier de moments condensés en un seul. Chaque gorgée contient la chaleur des rires partagés, la profondeur des mots tus, et l’amour qui persiste bien après que le verre soit vide. Dans sa richesse se trouve une histoire, une connexion, et un amour qu’on ne peut mesurer.</div>
+  <div class="price">Prix : 1,6 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+<div id="p4" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/9M6WR0TD/medusa-boutique.jpg" alt="Medusa">
+  <div class="description">Méduse montre que la peur peut devenir force.</div>
+  <div class="price">Prix : 2,5 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+<div id="p5" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/jdV5CgQM/Freedom.jpg" alt="Freedom">
+  <div class="description">La liberté ressemble à un oiseau aux ailes brisées — il lutte, aspire au ciel, mais refuse toute cage. Même dans sa douleur, il s’élève, brave la tempête, et sait que la vraie libération ne dépend pas d’ailes parfaites, mais du courage de voler malgré les cicatrices.</div>
+  <div class="price">Prix : 6,2 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+<div id="p6" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/7ZwZn5R7/no-time-to-die.jpg" alt="No Time to Die">
+  <div class="description">Dans un monde où chaque seconde compte, il n’y a pas de temps pour mourir — seulement du temps pour se battre, se relever et survivre. Chaque défi est un test, chaque instant une bataille, et abandonner n’est jamais une option. Tu te tiens fort ou tu disparais. Le choix t’appartient : survivre ou être oublié.</div>
+  <div class="price">Prix : 4,20 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+<div id="p7" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/59Qy4dvH/faces.jpg" alt="Faces">
+  <div class="description">Beaucoup de visages, beaucoup de mensonges — changeant de masque comme les saisons, mais la vérité ne disparaît jamais. Tu peux jouer le jeu, tromper le monde, mais à la fin, seuls les authentiques survivent. Qui es‑tu quand le masque tombe ?</div>
+  <div class="price">Prix : 5 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+<div id="p8" class="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img src="https://i.postimg.cc/K4XyzH6B/a-women-or-a-monster.jpg" alt="Âme Double">
+  <div class="description">Deux visages, un cœur, des histoires infinies de lumière et d’obscurité.</div>
+  <div class="price">Prix : 2,70 ETH</div>
+  <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank" class="btn">Commander</a>
+</div>
+
+</main>
+
+<footer>
+<p>&copy; 2025 Manoulart. Tous droits réservés. Suivez-moi sur <a href="https://www.instagram.com/manoulart?igsh=cjk5djFqOThhZHF3" target="_blank">Instagram</a> ✨</p>
+</footer>
+</body>
+</html>
